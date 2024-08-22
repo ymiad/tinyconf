@@ -1,4 +1,4 @@
-module github.com/insei/tinyconf
+module github.com/ymiad/tinyconf
 
 go 1.21
 

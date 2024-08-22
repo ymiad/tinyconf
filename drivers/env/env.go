@@ -47,7 +47,11 @@ type field struct {
 func (f field) genDoc(driver string) string {
 	if tagDriver, ok := f.tag.Lookup(driver); ok {
 		tagDoc := f.tag.Get("doc")
-		return fmt.Sprintf("#%s\n#%s=%v\n", tagDoc, tagDriver, f.value)
+		docStr := fmt.Sprintf("%s\n#%s=%v\n", tagDoc, tagDriver, f.value)
+		if f.value == "" || f.value == nil {
+			docStr = fmt.Sprintf("#%s\n#%s\n", tagDoc, tagDriver)
+		}
+		return docStr
 	}
 	return ""
 }
