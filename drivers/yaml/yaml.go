@@ -89,7 +89,7 @@ func (f field) genDoc(driver string, depth int) string {
 		offset.WriteRune('\t')
 	}
 	offset.WriteRune('#')
-	tagDriver := offset.String() + f.tag.Get(driver)
+	tagDriver := f.tag.Get(driver)
 	tagDoc := offset.String() + f.tag.Get("doc")
 	offset.Reset()
 	if reflect.TypeOf(f.value).Kind() == reflect.Struct {
